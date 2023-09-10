@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thmeleaf.org">
+<head>
+    <title>RTC视频通话测试页面</title>
+    <meta charset="UTF-8"> <!-- for HTML5 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+    <script src="/js/jquery-3.5.1/jquery-3.5.1.min.js"></script>
+    <META HTTP-EQUIV="pragma" CONTENT="no-cache">
+
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+
+    <META HTTP-EQUIV="expires" CONTENT="0">
+</head>
+
+
+<body>
+<style type="text/css">
+    body {
+        background: #000;
+    }
+
+    button {
+        height: 40px;
+        line-height: 40px;
+        width: auto;
+        padding: 0 15px;
+        background: #ccc;
+        border: none;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        overflow: hidden;
+    }
+
+    .wrap {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .video-box {
+        border-radius: 20px;
+        background: cadetblue;
+        position: relative;
+        width: 800px;
+        height: 600px;
+        overflow: hidden;
+    }
+
+    .remote-video {
+        width: 200px;
+        height: 150px;
+        border: 1px solid black;
+        overflow: hidden;
+    }
+
+    .local-video {
+        width: 320px;
+        height: 240px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        border-radius: 20px 0 0 0;
+        overflow: hidden;
+    }
+
+    video {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<div class="wrap">
+    <div>
+        <div>
+            <button type="button" onclick="startVideo();">开启本机摄像和音频</button>
+            <button type="button" onclick="connect();">建立连接</button>
+            <button type="button" onclick="hangUp();">挂断</button>
+            <button type="button" onclick="refreshPage();">刷新页面</button>
+        </div>
+        <div class="video-box">
+            <div class="local-video">
+                <video id="local-video" autoplay style=""></video>
+            </div>
+<!--            <div class="remote-video">-->
+<!--                <video id="remote-video" autoplay></video>-->
+<!--            </div>-->
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/SocketWrapper.js" ></script>
+<script src="/js/WebkitRTCPeerConnectionWrapper.js" ></script>
+<script src="/js/main.js" ></script>
+</body>
+</html>
